@@ -84,7 +84,10 @@ const groups = computed(() => {
 		if (!search.value) return filteredInterfaces;
 		const searchValue = search.value!.toLowerCase();
 		return filteredInterfaces.filter(
-			(inter) => inter.id.toLowerCase().includes(searchValue) || inter.name.toLowerCase().includes(searchValue),
+			(inter) =>
+				inter.id === chosenInterface.value ||
+				inter.id.toLowerCase().includes(searchValue) ||
+				inter.name.toLowerCase().includes(searchValue),
 		);
 	}
 });
